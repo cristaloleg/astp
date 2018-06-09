@@ -4,28 +4,8 @@ import "go/ast"
 
 // IsExpr returns true if a given ast.Node is an expression(ast.Expr).
 func IsExpr(node ast.Node) bool {
-	return IsBadExpr(node) ||
-		IsIdent(node) ||
-		IsEllipsis(node) ||
-		IsBasicLit(node) ||
-		IsFuncLit(node) ||
-		IsCompositeLit(node) ||
-		IsParenExpr(node) ||
-		IsSelectorExpr(node) ||
-		IsIndexExpr(node) ||
-		IsSliceExpr(node) ||
-		IsTypeAssertExpr(node) ||
-		IsCallExpr(node) ||
-		IsStarExpr(node) ||
-		IsUnaryExpr(node) ||
-		IsBinaryExpr(node) ||
-		IsKeyValueExpr(node) ||
-		IsArrayType(node) ||
-		IsStructType(node) ||
-		IsFuncType(node) ||
-		IsInterfaceType(node) ||
-		IsMapType(node) ||
-		IsChanType(node)
+	_, ok := node.(ast.Expr)
+	return ok
 }
 
 // IsBadExpr returns true if a given ast.Node is a bad expression (*ast.IsBadExpr).

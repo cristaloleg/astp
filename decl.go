@@ -2,6 +2,12 @@ package astp
 
 import "go/ast"
 
+// IsDecl reports whether node is a ast.Decl.
+func IsDecl(node ast.Node) bool {
+	_, ok := node.(ast.Decl)
+	return ok
+}
+
 // IsFuncDecl returns true if a given ast.Node is a function declaration (*ast.FuncDecl).
 func IsFuncDecl(node ast.Node) bool {
 	_, ok := node.(*ast.FuncDecl)

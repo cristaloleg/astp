@@ -4,27 +4,8 @@ import "go/ast"
 
 // IsStmt returns true if a given ast.Node is a statement(ast.Stmt).
 func IsStmt(node ast.Node) bool {
-	return IsBadStmt(node) ||
-		IsDeclStmt(node) ||
-		IsEmptyStmt(node) ||
-		IsLabeledStmt(node) ||
-		IsExprStmt(node) ||
-		IsSendStmt(node) ||
-		IsIncDecStmt(node) ||
-		IsAssignStmt(node) ||
-		IsGoStmt(node) ||
-		IsDeferStmt(node) ||
-		IsReturnStmt(node) ||
-		IsBranchStmt(node) ||
-		IsBlockStmt(node) ||
-		IsIfStmt(node) ||
-		IsCaseClause(node) ||
-		IsSwitchStmt(node) ||
-		IsTypeSwitchStmt(node) ||
-		IsCommClause(node) ||
-		IsSelectStmt(node) ||
-		IsForStmt(node) ||
-		IsRangeStmt(node)
+	_, ok := node.(ast.Stmt)
+	return ok
 }
 
 // IsBadStmt returns true if a given ast.Node is a XXX(*ast.BadStmt)
